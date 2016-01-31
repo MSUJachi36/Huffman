@@ -1,0 +1,72 @@
+
+public class Huffer 
+{
+    Tree HuffT = new Tree();
+    private PriorityQ PQ;
+    private String input;
+    private String convert;
+    private int freqTable[];
+    private Tree huff;
+    private String encode;
+    private String decode;
+    private String codeTable[];
+    public Huffer(String str) 
+    {
+     	input = str;
+     	int maxSize=10;
+     	for(int i = 0; i<maxSize; i++)
+        {
+        	freqTable[i]=0;
+        	makeFreqTable();
+        	queueTree();
+        	Building();
+       	
+	}
+    }
+    
+    public void Building()
+    {
+        while(PQ.nItems > 1)
+        {
+            Tree A = PQ.remove();   //left child
+            Tree B = PQ.remove();   //right child
+            Tree N = new Tree();
+            N.leftChild = A;
+            N.rightChild = B;
+            N.iData = A.iData + B.iData;
+            PQ.insert(N);
+        }
+        HuffT = PQ.remove();       //final tree
+    }
+	
+    public void makeFreqTable()
+    {
+
+    }
+
+    public void code()
+    {
+
+    }
+    public void decode()
+    {
+
+    }
+
+    public void makeCodeTable()
+    {
+
+    }
+
+    public void queueTree()
+    {
+
+    }
+
+    public void displayTree()
+    {
+
+    }		
+}
+
+    
