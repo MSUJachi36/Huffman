@@ -1,0 +1,119 @@
+public class Freq 
+{
+    private int[] asciiTable = new int[28];
+    static char[] textRay;
+   //code for reading in text and producing frequency table
+    // for user input, store input in string var, then parse string into array
+    //build ascii array: array length of ascii table, and use ascii code as indexes for array
+    //traverse array in a for loop and char.getvalue to get ascii code for each char
+    //use series of if statements to increment the ascii index when the ascii code is found in the string
+    //then copy ascii array into an alphabet array with corresponding freq
+    //maybe create class for storing, char, and freq
+    
+    public static void textconv(String txt)
+    {
+        String UpTxt = txt.toUpperCase(); //for now ignore case
+        textRay = UpTxt.toCharArray();
+        int txtln = txt.length();
+        int[] txtAscii = new int[txtln];
+        for(int i = 0; i < txtln; i++)
+        {
+            txtAscii[i] = (int) UpTxt.charAt(i);
+        }
+        getFrequency(textRay);
+       for(int out : txtAscii)
+           System.out.printf("%d ",out);
+    }
+    
+    public void Asciibuilder()
+    {
+        System.out.print("\n");
+        String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ[$";
+        for(int i = 0;i<alpha.length();i++)
+        {
+            asciiTable[i] = (int) alpha.charAt(i);
+        }
+        
+        //for(int out : asciiTable)
+        //  System.out.printf("%d ",out);
+    }
+    
+    public static int[] getFrequency(char[] charArray){
+        
+        int Actr=0;
+        int Bctr=0;
+        int Cctr=0;
+        int Dctr=0;
+        int Ectr=0;
+        int Fctr=0;
+        int Gctr=0;
+        int Hctr=0;
+        int Ictr=0;
+        int Jctr=0;
+        int Kctr=0;
+        int Lctr=0;
+        int Mctr=0;
+        int Nctr=0;
+        int Octr=0;
+        int Pctr=0;
+        int Qctr=0;
+        int Rctr=0;
+        int Sctr=0;
+        int Tctr=0;
+        int Uctr=0;
+        int Vctr=0;
+        int Wctr=0;
+        int Xctr=0;
+        int Yctr=0;
+        int Zctr=0;
+        
+        char[] alphabet = {'A','B','C','D','E','F','G','H','I','J','K','L',
+        'M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        int[] counterArray = {Actr,
+                              Bctr,
+                              Cctr,
+                              Dctr,
+                              Ectr,
+                              Fctr,
+                              Gctr,
+                              Hctr,
+                              Ictr,
+                              Jctr,
+                              Kctr,
+                              Lctr,
+                              Mctr,
+                              Nctr,
+                              Octr,
+                              Pctr,
+                              Qctr,
+                              Rctr,
+                              Sctr,
+                              Tctr,
+                              Uctr,
+                              Vctr,
+                              Wctr,
+                              Xctr,
+                              Yctr,
+                              Zctr};
+                              
+        for(int i=0; i<26; i++)
+        {
+            counterArray[i] = countNumberOfOccurences(charArray, alphabet[i]);
+            System.out.println("checking "+alphabet[i]+": "+counterArray[i]);
+        }          
+        return counterArray;
+    }
+    
+    public static int countNumberOfOccurences(char[] s, char find) {    
+        int counter = 0;
+        for(int i=0; i<s.length; i++)
+        {
+            if(s[i] == find){
+               counter++;
+            }
+        }
+        return counter;
+    }
+
+   
+}
